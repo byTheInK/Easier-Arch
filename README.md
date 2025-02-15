@@ -33,4 +33,42 @@ For example we are going to load the Turkish layout.
 loadkeys trq
 ```
 ## Connecting to the internet
+We first have to ensure our network interface is defined. Use `ip link` to list them.
+```bash
+ip link
+```
+### Ethernet
+If you want to connect to Ethernet, you can plug the cable. You can now skip the Wi-Fi part.
+
+## Wi-Fi
+To connect to the Wi-Fi we will use `iwctl`. Type the command below.
+```bash
+iwctl
+```
+Now you will get a prompt looking like `[iwd]#`. We are now going to look at the devices we can use.
+```bash
+[iwd] device list
+```
+This device is probably `wlan0` but this can change. If your device is turned off you can use the command below.
+```bash
+[iwd] device YOUR_DEVICE set-property Powered on
+```
+If your adapter is turned off you can use the command below.
+```
+[iwd] adapter YOUR_ADAPTER set-property Powered on
+```
+Now we are going to scan and get the networks.
+
+```bash
+[iwd] station YOUR_DEVICE scan
+[iwd] station YOUR_DEVICE get-networks
+```
+Now we can connect.
+```bash
+station YOUR_DEVICE connect YOUR_SSID
+```
+If your network is hidden
+```bash
+station YOUR_DEVICE connect-hidden YOUR_SSID
+```
 
