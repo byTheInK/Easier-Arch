@@ -115,3 +115,28 @@ Example:
 ```bash
 fdisk /dev/nvme0n1
 ```
+Now press the `d` key and delete all of the partitions one by one. If you deleted all of them we can create new ones. Type `n` to create a new partition.
+
+### Boot
+1. Type n
+2. Press enter
+3. Press enter
+4. Press enter
+5. Type `+1G`
+
+### Swap
+1. Type n
+2. Press enter
+3. Press enter
+4. Press enter
+5. Type `+8G`
+
+### Root
+1. Type n
+2. Press enter
+3. Press enter
+4. Press enter
+5. Press enter
+
+### Write
+You can type `w` to save the changes.
