@@ -95,12 +95,12 @@ timedatectl list-timezones
 ```
 You can use the arrow keys to navigate and you can press `q` to exit. If you find your timezone you can type the command below
 ```bash
-sudo timedatectl set-timezone Zone/SubZone
+timedatectl set-timezone Zone/SubZone
 ```
 
 Example:
 ```bash
-sudo timedatectl set-timezone Europe/Istanbul
+timedatectl set-timezone Europe/Istanbul
 ```
 ## Partitioning
 This is probably one of the hardest parts. We are going to use `fdisk` to set the partition.
