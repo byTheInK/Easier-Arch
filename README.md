@@ -147,3 +147,28 @@ Type `t`, select `1`, type `L` at the end you will see most common types. Near t
 
 ### Write
 You can type `w` to save the changes.
+
+## Formatting
+We are going to use [ext4](https://wiki.archlinux.org/title/Ext4) for the filesystem.
+```bash
+lsblk
+```
+This will show us the partitions.
+1. Fat
+2. Swap
+3. Ext4
+
+Fat
+```bash
+mkfs.fat -F 32 /dev/efi_system_partition
+```
+
+Swap
+```bash
+mkswap /dev/swap_partition
+```
+
+Ext4
+```bash
+mkfs.ext4 /dev/root_partition
+```
