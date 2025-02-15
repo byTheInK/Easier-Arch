@@ -187,3 +187,37 @@ Ext4
 ```bash
 mount /dev/root_partition /mnt
 ```
+
+## Installing Linux Firmware
+To install Linux and other needed dependencies you can type the command below.
+```bash
+pacstrap -K /mnt base linux linux-firmware
+```
+
+> [!NOTE]
+> This can take a while
+
+## Fstab
+You can generate an Fstab with this code.
+
+```bash
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+## Entering to the system
+We are going to change root into the new system.
+
+```bash
+arch-chroot /mnt
+```
+Normally people use Nano for this but Nano sometimes can be confusing. Because of that we are going to install Micro.
+```bash
+pacman -S micro
+```
+
+## Localization
+We are first going to generate the locales.
+```bash
+locale-gen
+```
+
