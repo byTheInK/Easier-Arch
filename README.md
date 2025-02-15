@@ -24,7 +24,7 @@ First of all we are going to load the keyboard layout. The command below will li
 localectl list-keymaps
 ```
 
-To load a layout we can use the command below.
+To load a layout we can use the command below. You can use the arrow keys to navigate and you can press `q` to exit.
 ```bash
 loadkeys KEYBOARD_LAYOUT
 ```
@@ -40,7 +40,7 @@ ip link
 ### Ethernet
 If you want to connect to Ethernet, you can plug the cable. You can now skip the Wi-Fi part.
 
-## Wi-Fi
+### Wi-Fi
 To connect to the Wi-Fi we will use `iwctl`. Type the command below.
 ```bash
 iwctl
@@ -73,7 +73,7 @@ station YOUR_DEVICE connect-hidden YOUR_SSID
 ```
 Now you can press `Control + D` to exit iwctl.
 
-## Testing
+### Testing
 
 After these steps you should be able to connect to the internet. You can try by using the command below.
 
@@ -81,3 +81,24 @@ After these steps you should be able to connect to the internet. You can try by 
 ping google.com
 ```
 You should be able to send packages. You can press `Control + C` to stop.
+
+## Changing the timezone
+You can check the time with `timedatectl`.
+```bash
+timedatectl
+```
+If you think this is correct you can skip this part.
+
+We can list the timezones with the command below.
+```bash
+timedatectl list-timezones
+```
+You can use the arrow keys to navigate and you can press `q` to exit. If you find your timezone you can type the command below
+```bash
+sudo timedatectl set-timezone Zone/SubZone
+```
+
+Example:
+```bash
+sudo timedatectl set-timezone Europe/Istanbul
+```
