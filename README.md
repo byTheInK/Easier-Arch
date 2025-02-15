@@ -172,3 +172,18 @@ Ext4
 ```bash
 mkfs.ext4 /dev/root_partition
 ```
+
+## Mounting
+
+Fat
+```
+mount --mkdir /dev/efi_system_partition /mnt/boot
+```
+Swap
+```bash
+swapon /dev/swap_partition
+```
+Ext4
+```bash
+mount /dev/root_partition /mnt
+```
