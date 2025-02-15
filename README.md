@@ -220,4 +220,25 @@ We are first going to generate the locales.
 ```bash
 locale-gen
 ```
+Now we can edit the settings.
+```bash
+micro /etc/locale.conf
+```
+Here type your language and encoding type.
+Example:
+```
+LANG=en_US.UTF-8
+```
+or
+```
+LANG=tr_TR.UTF-8
+```
 
+Now we can change the keyboard layout.
+```
+micro /etc/vconsole.conf
+```
+Example:
+```
+KEYMAP=trq
+```
