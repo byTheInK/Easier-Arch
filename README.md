@@ -102,3 +102,16 @@ Example:
 ```bash
 sudo timedatectl set-timezone Europe/Istanbul
 ```
+## Partitioning
+This is probably one of the hardest parts. We are going to use `fdisk` to set the partition.
+```bash
+lsblk
+```
+With this commands you will see disks. You can find out the disk by looking at the size. Now we are going to use `fdisk`.
+```bash
+fdisk /dev/YOUR_DISK
+```
+Example:
+```bash
+fdisk /dev/nvme0n1
+```
