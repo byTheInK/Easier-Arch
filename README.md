@@ -16,3 +16,21 @@ After installing Ventoy you can create a new folder in that disk and you can nam
 
 ## Opening Arch Linux
 You first have to enter to the BIOS. This process depends on your system. If you don't know how you can search how to do it. When you enter to the BIOS menu you have to select an option called something like live boot. You have to select that USB disk. A Ventoy menu will pop up. From there select Arch Linux. When you enter, you have to wait few seconds.
+
+# Installation
+# Setting the keyboard layout
+First of all we are going to load the keyboard layout. The command below will list all of the layouts.
+```
+localectl list-keymaps
+```
+
+To load a layout we can use the command below.
+```bash
+loadkeys KEYBOARD_LAYOUT
+```
+For example we are going to load the Turkish layout.
+```bash
+loadkeys trq
+```
+## Connecting to the internet
+
