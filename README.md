@@ -71,4 +71,13 @@ If your network is hidden
 ```bash
 station YOUR_DEVICE connect-hidden YOUR_SSID
 ```
+Now you can press `Control + D` to exit iwctl.
 
+## Testing
+
+After these steps you should be able to connect to the internet. You can try by using the command below.
+
+```bash
+ping google.com
+```
+You should be able to send packages. You can press `Control + C` to stop.
