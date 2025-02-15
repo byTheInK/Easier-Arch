@@ -138,5 +138,12 @@ Now press the `d` key and delete all of the partitions one by one. If you delete
 4. Press enter
 5. Press enter
 
+### Setting the types
+Type `t`, select `1`, type `L` at the end you will see most common types. Near them you will see their code.
+
+1. Uefi
+2. Swap
+3. Linux
+
 ### Write
 You can type `w` to save the changes.
