@@ -9,9 +9,10 @@ First of all we have to install the ISO file from the [offical Arch Linux websit
 ## Writing the ISO image to a USB
 After installing we have to write this ISO file in to a USB. I am going to recommend Ventoy for this. You can download this from the [offical Ventoy website](https://www.ventoy.net/en/download.html). After opening Ventoy you will see a menu. First select the USB device that you want to write the ISO file. After selecting click install and it will start installing.
 
-After installing Ventoy you can create a new folder in that disk and you can name it something like Linux.
-
 > [!CAUTION]
 > This will erase the USB disk.
 
-## Opening the
+After installing Ventoy you can create a new folder in that disk and you can name it something like Linux. Now we can move the ISO file to that folder.
+
+## Opening Arch Linux
+You first have to enter to the BIOS. This process depends on your system. If you don't know how you can search how to do it. When you enter to the BIOS menu you have to select an option called something like live boot. You have to select that USB disk. A Ventoy menu will pop up. From there select Arch Linux. When you enter, you have to wait few seconds.
