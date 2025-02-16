@@ -1,39 +1,39 @@
 # About
-This is an **unoffical** Arch Linux installation guide. This guide tries to make the Arch Linux installation easier. If you have a question how can open an [issue](https://github.com/byTheInK/Easier-Arch/issues).
+This is an **unofficial** Arch Linux installation guide. This guide tries to make the Arch Linux installation easier. If you have a question, you can open a n [issue](https://github.com/byTheInK/Easier-Arch/issues).
 
 # Setting up
 
 ## Installing the ISO file
-First of all we have to install the ISO file from the [offical Arch Linux website](https://archlinux.org/download/). I would recommend installing this file with qBitTorrent or another Torrent client.
+First of all you have to install the ISO file from the [official Arch Linux website](https://archlinux.org/download/). I would recommend installing this file with qBitTorrent or another Torrent client.
 
 ## Writing the ISO image to a USB
-After installing we have to write this ISO file in to a USB. I am going to recommend Ventoy for this. You can download this from the [offical Ventoy website](https://www.ventoy.net/en/download.html). After opening Ventoy you will see a menu. First select the USB device that you want to write the ISO file. After selecting click install and it will start installing.
+After installing you have to write this ISO file in to a USB. I am going to recommend Ventoy for this. You can download this from the [official Ventoy website](https://www.ventoy.net/en/download.html). After opening Ventoy you will see a menu. First select the USB device that you want to write the ISO file. After selecting click install and it will start installing.
 
 > [!CAUTION]
 > This will erase the USB disk.
 
-After installing Ventoy you can create a new folder in that disk and you can name it something like Linux. Now we can move the ISO file to that folder.
+After installing Ventoy you can create a new folder in that disk and you can name it something like Linux. Now you can move the ISO file to that folder.
 
 ## Opening Arch Linux
-You first have to enter to the BIOS. This process depends on your system. If you don't know how you can search how to do it. When you enter to the BIOS menu you have to select an option called something like live boot. You have to select that USB disk. A Ventoy menu will pop up. From there select Arch Linux. When you enter, you have to wait few seconds.
+You first have to enter the BIOS. This process depends on your system. If you don't know how you can search how to do it. When you enter the BIOS menu you have to select an option called something like live boot. You have to select that USB disk. A Ventoy menu will pop up. From there select Arch Linux. When you enter, you have to wait few seconds.
 
 # Installation
 # Setting the keyboard layout
-First of all we are going to load the keyboard layout. The command below will list all of the layouts.
+First of all you are going to load the keyboard layout. The command below will list all of the layouts.
 ```
 localectl list-keymaps
 ```
 
-To load a layout we can use the command below. You can use the arrow keys to navigate and you can press `q` to exit.
+To load a layout you can use the command below. You can use the arrow keys to navigate and you can press `q` to exit.
 ```bash
 loadkeys KEYBOARD_LAYOUT
 ```
-For example we are going to load the Turkish layout.
+Example:
 ```bash
 loadkeys trq
 ```
 ## Connecting to the internet
-We first have to ensure our network interface is defined. Use `ip link` to list them.
+You have to ensure our network interface is defined. Use `ip link` to list them.
 ```bash
 ip link
 ```
@@ -41,11 +41,11 @@ ip link
 If you want to connect to Ethernet, you can plug the cable. You can now skip the Wi-Fi part.
 
 ### Wi-Fi
-To connect to the Wi-Fi we will use `iwctl`. Type the command below.
+To connect to the Wi-Fi you will use `iwctl`. Type the command below.
 ```bash
 iwctl
 ```
-Now you will get a prompt looking like `[iwd]#`. We are now going to look at the devices we can use.
+Now you will get a prompt looking like `[iwd]#`. You are now going to look at the devices you can use.
 ```bash
 [iwd] device list
 ```
@@ -57,13 +57,13 @@ If your adapter is turned off you can use the command below.
 ```
 [iwd] adapter YOUR_ADAPTER set-property Powered on
 ```
-Now we are going to scan and get the networks.
+Now you are going to scan and get the networks.
 
 ```bash
 [iwd] station YOUR_DEVICE scan
 [iwd] station YOUR_DEVICE get-networks
 ```
-Now we can connect.
+Now you can connect.
 ```bash
 station YOUR_DEVICE connect YOUR_SSID
 ```
@@ -83,11 +83,11 @@ ping google.com
 You should be able to send packages. You can press `Control + C` to stop.
 
 ## Partitioning
-This is probably one of the hardest parts. We are going to use `fdisk` to set the partition.
+This is probably one of the hardest parts. You are going to use `fdisk` to set the partition.
 ```bash
 lsblk
 ```
-With this commands you will see disks. You can find out the disk by looking at the size. Now we are going to use `fdisk`.
+With this commands you will see disks. You can find out the disk by looking at the size. Now You are going to use `fdisk`.
 ```bash
 fdisk /dev/YOUR_DISK
 ```
@@ -95,7 +95,7 @@ Example:
 ```bash
 fdisk /dev/nvme0n1
 ```
-Now press the `d` key and delete all of the partitions one by one. If you deleted all of them we can create new ones. Type `n` to create a new partition.
+Now press the `d` key and delete all of the partitions one by one. If you deleted all of them you can create new ones. Type `n` to create a new partition.
 
 ### Boot
 1. Type n
@@ -129,7 +129,7 @@ Type `t`, select `1`, type `L` at the end you will see most common types. Near t
 You can type `w` to save the changes.
 
 ## Formatting
-We are going to use [ext4](https://wiki.archlinux.org/title/Ext4) for the filesystem.
+You are going to use [ext4](https://wiki.archlinux.org/title/Ext4) for the filesystem.
 ```bash
 lsblk
 ```
@@ -185,16 +185,16 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 ## Entering to the system
-We are going to change root into the new system.
+You are going to change root into the new system.
 ```bash
 arch-chroot /mnt
 ```
 ## Localization
-We are first going to generate the locales.
+You are first going to generate the locales.
 ```bash
 locale-gen
 ```
-Now we can edit the settings. You can do `Control + Q` to exit.
+Now you can edit the settings. You can do `Control + Q` to exit.
 ```bash
 micro /etc/locale.conf
 ```
@@ -208,7 +208,7 @@ or
 LANG=tr_TR.UTF-8
 ```
 
-Now we can change the keyboard layout.
+Now you can change the keyboard layout.
 ```
 micro /etc/vconsole.conf
 ```
@@ -217,7 +217,7 @@ Example:
 KEYMAP=trq
 ```
 ## Timezone
-To set the timezone we are going to make a symbolic link.
+To set the timezone you are going to make a symbolic link.
 ```bash
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 ```
@@ -239,11 +239,11 @@ passwd
 systemctl enable NetworkManager
 ```
 ## Adding a user
-To add a user we are going to use `useradd`.
+To add a user you are going to use `useradd`.
 ```bash
 useradd -m -G wheel -s /bin/bash YOUR_USER_NAME
 ```
-Now we can set the user's password.
+Now you can set the user's password.
 ```bash
 passwd YOUR_USER_NAME
 ```
@@ -265,7 +265,7 @@ New:
 ```
 
 ## GRUB
-GRUB is the most common Bootloader for Linux. We first have to find the boot mode.
+GRUB is the most common Bootloader for Linux. You first have to find the boot mode.
 ```bash
 ls /sys/firmware/efi
 ```
