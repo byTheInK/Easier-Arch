@@ -293,3 +293,14 @@ exit
 umount -R /mnt
 reboot
 ```
+Your system will reboot and you will see the GRUB menu. Open Arch Linux from there.
+```bash
+archlinux login: YOUR_USER_NAME
+Password: YOUR_PASSWORD
+```
+First thing you should do is to update the system.
+```bash
+sudo pacman -Syu
+```
+
+There isn't a desktop environment installed.
