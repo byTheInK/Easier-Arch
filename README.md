@@ -157,7 +157,8 @@ mkfs.ext4 /dev/root_partition
 
 Fat
 ```
-mount --mkdir /dev/efi_system_partition /mnt/boot/efi
+mkdir -p /mnt/boot/efi
+mount  /dev/efi_system_partition /mnt/boot/efi
 ```
 Swap
 ```bash
