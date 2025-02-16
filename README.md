@@ -1,5 +1,5 @@
 # About
-This is an **unofficial** Arch Linux installation guide. This guide tries to make the Arch Linux installation easier. If you have a question, you can open a n [issue](https://github.com/byTheInK/Easier-Arch/issues).
+This is an **unofficial** Arch Linux installation guide. This guide tries to make the Arch Linux installation easier. If you have a question, you can open an [issue](https://github.com/byTheInK/Easier-Arch/issues).
 
 # Setting up
 
