@@ -82,26 +82,6 @@ ping google.com
 ```
 You should be able to send packages. You can press `Control + C` to stop.
 
-## Changing the timezone
-You can check the time with `timedatectl`.
-```bash
-timedatectl
-```
-If you think this is correct you can skip this part.
-
-We can list the timezones with the command below.
-```bash
-timedatectl list-timezones
-```
-You can use the arrow keys to navigate and you can press `q` to exit. If you find your timezone you can type the command below
-```bash
-timedatectl set-timezone Zone/SubZone
-```
-
-Example:
-```bash
-timedatectl set-timezone Europe/Istanbul
-```
 ## Partitioning
 This is probably one of the hardest parts. We are going to use `fdisk` to set the partition.
 ```bash
@@ -191,7 +171,7 @@ mount /dev/root_partition /mnt
 ## Installing Linux Firmware
 To install Linux and other needed dependencies you can type the command below.
 ```bash
-pacstrap -K /mnt base linux linux-firmware
+pacstrap -K /mnt base linux linux-firmware micro grub base-devel sudo efibootmgr networkmanager nano os-prober
 ```
 
 > [!NOTE]
@@ -206,21 +186,15 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 ## Entering to the system
 We are going to change root into the new system.
-
 ```bash
 arch-chroot /mnt
 ```
-Normally people use Nano for this but Nano sometimes can be confusing. Because of that we are going to install Micro.
-```bash
-pacman -S micro
-```
-
 ## Localization
 We are first going to generate the locales.
 ```bash
 locale-gen
 ```
-Now we can edit the settings.
+Now we can edit the settings. You can do `Control + Q` to exit.
 ```bash
 micro /etc/locale.conf
 ```
@@ -241,4 +215,80 @@ micro /etc/vconsole.conf
 Example:
 ```
 KEYMAP=trq
+```
+## Timezone
+To set the timezone we are going to make a symbolic link.
+```bash
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
+Example:
+```bash
+ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
+```
+## Setting the hostname
+```bash
+micro /etc/hostname
+```
+
+## Setting the root password
+```bash
+passwd
+```
+## Enabling network manager
+```bash
+systemctl enable NetworkManager
+```
+## Adding a user
+To add a user we are going to use `useradd`.
+```bash
+useradd -m -G wheel -s /bin/bash YOUR_USER_NAME
+```
+Now we can set the user's password.
+```bash
+passwd YOUR_USER_NAME
+```
+
+## Making the user root
+```bash
+EDITOR=micro
+visudo
+```
+Now you can uncomment the line.
+
+Old:
+```bash
+# %wheel ALL=(ALL:ALL) ALL
+```
+New:
+```bash
+%wheel ALL=(ALL:ALL) ALL
+```
+
+## GRUB
+GRUB is the most common Bootloader for Linux. We first have to find the boot mode.
+```bash
+ls /sys/firmware/efi
+```
+If you see some files and directories you are in Uefi mode but if you don't see, you are in BIOS mode.
+
+Uefi mode:
+```bash
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+```
+
+BIOS mode:
+```bash
+grub-install --target=i386-pc /dev/YOUR_DISK
+```
+
+Let's generate the GRUB configuration file.
+```bash
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+## Finishing
+```bash
+exit
+umount -R /mnt
+reboot
 ```
