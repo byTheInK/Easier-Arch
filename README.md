@@ -303,4 +303,4 @@ First thing you should do is to update the system.
 sudo pacman -Syu
 ```
 
-There isn't a desktop environment installed.
+There isn't a desktop environment installed. If you want one you can check [here]().
