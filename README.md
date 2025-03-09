@@ -237,7 +237,7 @@ passwd
 ```
 ## Enabling network manager
 ```bash
-systemctl enable NetworkManager
+systemctl enable NetworkManager --now
 ```
 ## Adding a user
 To add a user you are going to use `useradd`.

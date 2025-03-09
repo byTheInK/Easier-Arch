@@ -1,5 +1,5 @@
 # GNOME
-First off all you should install Gdm(GNOME display manager).
+First off all you should install gdm (GNOME display manager).
 ```bash
 sudo pacman -S gdm
 ```
@@ -21,3 +21,5 @@ Extension can make your life easier.
 ```bash
 sudo pacman -S gnome-shell-extensions
 ```
+
+
